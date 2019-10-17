@@ -1,2 +1,2 @@
-# thesis-hien-nguyen
+# Hien Nguyen thesis repo
 Hien's Thesis
