@@ -25,6 +25,3 @@ def substring_reduction(line, lower=1, upper=4):
                 reduced.add(str_i)
     return [word for word in freq.keys() if word not in reduced]  
 
-#l = "the door handle is broken because where can i buy a new door handle ."
-#l2 = "working in the same familiar print environment of QuarkXPress 8 you can take existing print jobs to Flash or create new Flash projects in minutes - no additional purchase or coding required ! watch a video on how to create sophisticated Flash designs in QuarkXPress 8 "
-#print(substring_reduction(l))

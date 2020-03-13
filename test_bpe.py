@@ -4,6 +4,19 @@ from bpe import BytePairTrainer
 
 class TestBpe(unittest.TestCase):
 
+    def test_accessor(self):
+        lines = ['the dog doo', 'that dog they dogged']
+        trainer = BytePairTrainer(lines)
+        trainer.merge('d','o')
+        tokens = trainer.tokens
+        pv = prefix_variety(tokens)
+        sv = suffix_variety(tokens)
+        av = accessor_variety(tokens)
+        assert pv  == {'do': 1, 't': 1, 'h': 1, 'g': 2, ...}
+        assert sv['do'] == 3
+        assert av['do'] == 1
+        
+    
     def test_merge(self):
         lines = ['the dog doo', 'that dog they dogged']
         trainer = BytePairTrainer(lines)
