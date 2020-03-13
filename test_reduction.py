@@ -1,5 +1,6 @@
 import unittest
 from reduction import ngrams, substring_reduction
+from goodness_measures import accessor_variety
 
 class TestBpe(unittest.TestCase):
 
@@ -15,6 +16,14 @@ class TestBpe(unittest.TestCase):
         l = "the door handle is broken because where can i buy a new door handle ."
         assert substring_reduction(l) == ['door handle']
 
+    def test_av(self):
+        l = "c r o p a d r o p"
+        assert accessor_variety(l) == ("o p", 2)
+        
+    def test_bpe_with_av(self):
+        corpus = ["c r o p a d r o p", "c r o w a d r o p"]
+        #assert bpe_with_av(corpus) == ...???
+        
         
 if __name__ == "__main__":
 	unittest.main()

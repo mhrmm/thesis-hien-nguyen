@@ -34,8 +34,8 @@ def accessor_variety(line, lower=2, upper=4):
       return None
 
     process_line(line)
-    line = line.split(' ')
     line = '<sos> ' + line + ' <eos>'  # add start-of-sentence and end-of-sentence tokens
+    line = line.split(' ')
 
     vocab = Counter()
     predecessors, successors = defaultdict(set), defaultdict(set)
@@ -56,7 +56,7 @@ def accessor_variety(line, lower=2, upper=4):
         if len(successors[g]) > max_av_successor[1]:
             max_av_successor = (g, len(successors[g]))
 
-    return max_av_successor[0], min(max_av_predescessor, max_av_successor)
+    return max_av_successor[0], min(max_av_predescessor[1], max_av_successor[1])
 
 def description_length_gain(line):
     pass
